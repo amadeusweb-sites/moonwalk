@@ -18,6 +18,7 @@ variables([
 		->getItems(),
 
 	replacer::siteReplaces => [
+		'book-button' => linkBuilder::factory('Book a Voice Audit', 'book', $popup = 'lightbox', false, 'button mw-btn'),
 		'CommonLongTail' => site::$current->siteName . ', Communication Coach, Trainer, Public Speaking, Gain Confidence, '
 			. 'Communication coaching for mid to senior professionals and aspiring public speakers',
 	],
