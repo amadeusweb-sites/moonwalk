@@ -25,9 +25,6 @@ variables([
 	],
 ]);
 
-if (nodeIs(SITEHOME))
-	setHtmlVariable(VARWelcomeMessage, getSnippet('welcome'));
-
 function site_before_render() {
 	autosetPageMenu();
 }
@@ -36,6 +33,14 @@ function enrichThemeVars($vars, $what, themePart | null $part) {
 	if ($what == 'header') {
 		$part->setValue(themePart::aboveContent, renderSET::create()->echo()->noParas()
 			->render(SITEPATH . '/data/snippets/side-panel.html'));
+
+		$part->append(themePart::headIncludes, getSnippet('always', BOOLNo, JSONFILE), JSONFILE);
+
+		if ($json = relatedJsonFile(fileResolver::rootOrFile()))
+			$part->append(themePart::headIncludes, $json, JSONFILE);
+
+		if (nodeIs(SITEHOME))
+			setHtmlVariable(VARWelcomeMessage, getSnippet('welcome')); //call after using always.json
 	}
 
 	return $part ? $part->settings : $vars;

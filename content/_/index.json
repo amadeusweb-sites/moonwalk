@@ -1,0 +1,38 @@
+	{
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": [
+			{
+				"@type": "Question",
+				"name": "Who is the Moonwalk Speaker Method for?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "Managers, directors and executives who present often, and aspiring speakers building their first stage talk."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "How long does the programme take?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "Twelve weeks, with one 75 minute session a week and short practice between sessions."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "Can I coach online?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "Yes. Most clients work with us on video, and we review recordings of real meetings and talks."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "What happens in the Voice Audit?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "A free 30 minute call where you speak for two minutes, and we tell you the three habits holding your presence back. No obligation."
+				}
+			}
+		]
+	}
