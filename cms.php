@@ -12,8 +12,10 @@ variables([
 	VARWhatsapp => whatsapp_clean($ph),
 
 	socialBuilder::variableName => socialBuilder::create()
-		->addInstagram($handle = 'moonwalk-in', $handle)
-		->addYoutube($handle, $handle)
+		->addInstagram($handle = 'MoonWalkSM', $handle)
+		->addFacebook($handle, $handle)
+		->addHR()
+		->addYoutube('@' . $handle, $handle)
 		->addLinkedIn('company/' . $handle . '/', $handle)
 		->getItems(),
 
@@ -65,8 +67,8 @@ function enrichThemeVars($vars, $what, themePart | null $part) {
 function before_network_menu() {
 	$start = '<li class="menu-item sub-menu"><a class="menu-link" href="'. getHtmlVariable('url');
 	$end = '</div></a></li>';
-	echo (SHOWAI ? $start .'_canvasai/?embed=1"><div>AI Design' . $end . NEWLINE .
-		$start .'?ai=1"><div>AI Trial' . $end . NEWLINE : '') .
+	echo (SHOWAI ? $start .'_canvasai/?embed=1"><div>AI1' . $end . NEWLINE .
+		$start .'?ai=1"><div>AI2' . $end . NEWLINE : '') .
 		'	<li class="menu-item sub-menu">
 		<div id="side-panel-trigger" class="side-panel-trigger"><a href="#" class="bg-info dark p-1"><i class="bi-three-dots"></i></a></div>
 	</li>';
