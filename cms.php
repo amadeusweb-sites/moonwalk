@@ -8,37 +8,46 @@ variables([
 	VAREmail => 'moonwalk@amadeusweb.in',
 	VARAddress => 'Trichy, India',
 	VARAddressUrl => '#maps',
-	VARPhone => $ph = '+916380427526',
+	VARPhone => $ph = '+91-91767-67526',
 	VARWhatsapp => whatsapp_clean($ph),
 
 	socialBuilder::variableName => socialBuilder::create()
-		->addInstagram($handle = 'MoonWalkSM', $handle)
-		->addFacebook($handle, $handle)
+		->addYoutube('@' . $handle = 'MoonWalkSM', $handle)
+		/*
+		->addInstagram($handle, $handle)
 		->addHR()
-		->addYoutube('@' . $handle, $handle)
+		->addFacebook($handle, $handle)
 		->addLinkedIn('company/' . $handle . '/', $handle)
+		*/
+		->addHR()
+		->addShare()
+		->addBuiltin(false, false, socialBuilder::terms)
 		->getItems(),
 
 	replacer::siteReplaces => [
+		'pageImage' => variable(VARSafeName) . '-icon.png', //TODO: logo shows zoomed
 		'book-button' => linkBuilder::factory('Book a Voice Audit', 'book', $popup = 'lightbox', false, 'button mw-btn'),
 		'CommonLongTail' => site::$current->siteName . ', Communication Coach, Trainer, Public Speaking, Gain Confidence, '
 			. 'Communication coaching for mid to senior professionals and aspiring public speakers',
 	],
 
 	VARUPI => [
-		'site' => ['id' => 'advaithbhuvana@okhdfc', 'name' => 'Bhuvana Seshan'],
+		'site' => ['id' => 'advaithbhuvana@okhdfcbank', 'name' => 'Bhuvana Seshan'],
 	],
 ]);
 
+setup_cdn();
+addStyle('moonwalk');
+
 fileResolver::$echoRawHtml = startsWith(nodeValue(), '_');
 
-DEFINE('SHOWAI', true);
-DEFINE('USEAI', getQueryParameter('ai') != 'no');
+$ai = false;
+DEFINE('SHOWAI', $ai);
+DEFINE('USEAI', $ai && getQueryParameter('ai') != 'no');
 
 if (nodeIs(SITEHOME) && USEAI) {
 	variable(VARQueryPrefix . VARQueryContent, 1);
 	setSubTheme('content-only-sans-wrapper');
-	addStyle('moonwalk');
 }
 
 function site_before_render() {

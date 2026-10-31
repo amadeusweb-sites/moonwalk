@@ -1,4 +1,4 @@
-Welcome to **%siteName%**
+Welcome,
 
 We are pleased to have you here.
 
@@ -8,3 +8,4 @@ warmly, JUSTBR
 Bhuvana
 
 [Enroll Now](%url%enroll/BTNPRIMARY)
+%book-button%
