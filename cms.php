@@ -11,6 +11,12 @@ variables([
 	VARPhone => $ph = '+91-91767-67526',
 	VARWhatsapp => whatsapp_clean($ph),
 
+	search::names => ['site', search::dawn],
+	search::items => [
+		'site' => new search('site', 'MoonWalk', 'c319f1b0147024f09', 'Search This Site Alone'),
+		//TODO: Resources
+	],
+
 	socialBuilder::variableName => socialBuilder::create()
 		->addYoutube('@' . $handle = 'MoonWalkSM', $handle)
 		/*
